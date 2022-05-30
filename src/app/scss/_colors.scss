@@ -1,0 +1,49 @@
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+$primary-palette: (
+ A100: #506166,
+ A200: #27373c,
+ A300: #001116,
+ contrast: (
+   A100: white,
+   A200: white,
+   A300: white,
+ )
+);
+
+$accent-palette: (
+ A100: #c1d5bf,
+ A200: #9ab997,
+ A300: #559050,
+ contrast: (
+   A100: map-get($map: $primary-palette, $key: A200),
+   A200: white,
+   A300: white,
+ )
+);
+
+$warn-palette: (
+ A100:#ff7e8c,
+ A200: #e84a5f,
+ A300: #b00136,
+ contrast: (
+   A100: map-get($map: $primary-palette, $key: A200),
+   A200: white,
+   A300: white,
+ )
+);
+
+$primary: map-get($map: $primary-palette, $key: A200);
+$primary-contrast: map-deep-get($primary-palette, contrast, A200);
+$accent: map-get($map: $accent-palette, $key: A200);
+$accent-contrast: map-deep-get($accent-palette, contrast, A200);
+$warn: map-get($map: $warn-palette, $key: A200);
+$warn-contrast: map-deep-get($warn-palette, contrast, A200);
+
+$secondary: #fecdaa;
+$tertiary: #fe827c;

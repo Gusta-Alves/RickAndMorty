@@ -1,0 +1,11 @@
+@import '../../../../scss/variables';
+
+.c-outdoor{
+    height: 100px;
+    background-color: $accent;
+    color: $accent-contrast;
+    @include flexCenter;
+    &__text{
+        margin: 0;
+    }
+}

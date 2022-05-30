@@ -1,0 +1,50 @@
+@import './colors';
+
+$xmobile: "(max-width: 500px)"; 
+$smobile: "(max-width: 576px)"; 
+$mobile: "(max-width: 767px)"; 
+
+$xtablet: "(max-width: 992px)";
+$tablet: "(max-width: 1200px)";
+
+$iphone4: "(max-height: 530px)"; 
+$iphone5: "(max-width: 350px)";
+$iphoneX: "(min-height: 800px)";
+
+.showmobile {
+    display: none !important;
+    @media #{$mobile}{
+        display: block !important;
+    }
+  }
+.hidemobile {
+    @media #{#{$mobile}}{
+        display: none !important;
+    }
+}
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes opacityStart{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: $primary;
+    background: $tertiary;
+}
+
+::selection {
+    color: $primary;
+    background: $tertiary;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primary;
+}
+  

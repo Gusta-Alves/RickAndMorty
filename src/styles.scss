@@ -8,45 +8,12 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-
+@import './app/scss/variables';
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 
-$primary-palette: (
- A100: #506166,
- A200: #27373c,
- A300: #001116,
- contrast: (
-   A100: white,
-   A200: white,
-   A300: white,
- )
-);
-
-$accent-palette: (
- A100: #c1d5bf,
- A200: #9ab997,
- A300: #559050,
- contrast: (
-   A100: map-get($map: $primary-palette, $key: A200),
-   A200: map-get($map: $primary-palette, $key: A200),
-   A300: white,
- )
-);
-
-$warn-palette: (
- A100:#ff7e8c,
- A200: #e84a5f,
- A300: #b00136,
- contrast: (
-   A100: map-get($map: $primary-palette, $key: A200),
-   A200: white,
-   A300: white,
- )
-);
-
-$rickandmorty-primary: mat.define-palette($primary-palette, A200);
+$rickandmorty-primary: mat.define-palette($primary-palette, A300);
 $rickandmorty-accent: mat.define-palette($accent-palette, A200, A100, A300);
 
 // The warn palette is optional (defaults to red).
