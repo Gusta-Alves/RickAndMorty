@@ -1,1 +1,73 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$primary-palette: (
+ A100: #506166,
+ A200: #27373c,
+ A300: #001116,
+ contrast: (
+   A100: white,
+   A200: white,
+   A300: white,
+ )
+);
+
+$accent-palette: (
+ A100: #c1d5bf,
+ A200: #9ab997,
+ A300: #559050,
+ contrast: (
+   A100: map-get($map: $primary-palette, $key: A200),
+   A200: map-get($map: $primary-palette, $key: A200),
+   A300: white,
+ )
+);
+
+$warn-palette: (
+ A100:#ff7e8c,
+ A200: #e84a5f,
+ A300: #b00136,
+ contrast: (
+   A100: map-get($map: $primary-palette, $key: A200),
+   A200: white,
+   A300: white,
+ )
+);
+
+$rickandmorty-primary: mat.define-palette($primary-palette, A200);
+$rickandmorty-accent: mat.define-palette($accent-palette, A200, A100, A300);
+
+// The warn palette is optional (defaults to red).
+$rickandmorty-warn: mat.define-palette($warn-palette, A200);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$rickandmorty-theme: mat.define-light-theme((
+  color: (
+    primary: $rickandmorty-primary,
+    accent: $rickandmorty-accent,
+    warn: $rickandmorty-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($rickandmorty-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
