@@ -10,4 +10,14 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-color: map-get($map: $primary-palette, $key: A200);
+    &__container{
+        height: 100%;
+        @include flexCenter;
+        justify-content: flex-start;
+    }
+    &__img{
+        @media #{$mobile}{
+            width: 50%;
+        }
+    }
 }
