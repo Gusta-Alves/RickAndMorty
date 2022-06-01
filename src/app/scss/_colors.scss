@@ -38,11 +38,19 @@ $warn-palette: (
  )
 );
 
+$primary-light: map-get($map: $primary-palette, $key: A100);
 $primary: map-get($map: $primary-palette, $key: A200);
+$primary-dark: map-get($map: $primary-palette, $key: A300);
 $primary-contrast: map-deep-get($primary-palette, contrast, A200);
+
+$accent-light: map-get($map: $accent-palette, $key: A200);
 $accent: map-get($map: $accent-palette, $key: A200);
+$accent-dark: map-get($map: $accent-palette, $key: A200);
 $accent-contrast: map-deep-get($accent-palette, contrast, A200);
+
+$warn-light: map-get($map: $warn-palette, $key: A100);
 $warn: map-get($map: $warn-palette, $key: A200);
+$warn-dark: map-get($map: $warn-palette, $key: A300);
 $warn-contrast: map-deep-get($warn-palette, contrast, A200);
 
 $secondary: #fecdaa;

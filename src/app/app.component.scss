@@ -1,0 +1,8 @@
+@import './scss/variables';
+
+.c-toolbar{
+    margin-bottom: 64px;
+    @media #{$mobile}{
+        margin-bottom: 56px;
+    }
+}
