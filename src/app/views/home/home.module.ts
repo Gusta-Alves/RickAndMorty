@@ -7,18 +7,22 @@ import { HeaderComponent } from './components/header/header.component';
 import { OutdoorComponent } from './components/outdoor/outdoor.component';
 import { OutdoorService } from './services/outdoor.service';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { CardsComponent } from './components/cards/cards.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     HomeComponent,
     HeaderComponent,
-    OutdoorComponent
+    OutdoorComponent,
+    CardsComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [
     OutdoorService,

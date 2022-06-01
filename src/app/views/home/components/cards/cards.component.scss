@@ -1,0 +1,21 @@
+@import '../../../../scss/variables';
+
+.c-card{
+    background: rgba($color: $accent, $alpha: 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: $accent-contrast;
+    cursor: pointer;
+    &__img{
+        height: 350px; 
+        @media #{$mobile}{
+            height: 250px; 
+        }      
+    }
+    &__header{
+        width: 100%;
+        justify-content: center;
+    }
+}
