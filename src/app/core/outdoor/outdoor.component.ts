@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { OutdoorService } from '../../services/outdoor.service';
+import { OutdoorService } from '../services/outdoor.service';
 import { IPhrase } from './models/phrase.interface';
 
 @Component({

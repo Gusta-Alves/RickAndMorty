@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IPhrase } from '../components/outdoor/models/phrase.interface';
+import { IPhrase } from '../outdoor/models/phrase.interface';
 
 @Injectable({
   providedIn: 'root'

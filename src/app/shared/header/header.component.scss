@@ -1,10 +1,10 @@
-@import '../../../../scss/variables';
+@import '../../scss/variables';
 
 .c-header{
     width: 100%;
     position: relative;
     height: 50vh;
-    background-image: url('../../../../../assets/imgs/rick-transparente.png');
+    background-image: url('../../../assets/imgs/rick-transparente.png');
     background-position: bottom;
     background-position-x: right;
     background-repeat: no-repeat;
@@ -15,9 +15,18 @@
         @include flexCenter;
         justify-content: flex-start;
     }
+    &__img-content{
+        @include flexCenter;
+        flex-direction: column;
+    }
     &__img{
         @media #{$mobile}{
             width: 50%;
         }
+    }
+    &__title{
+        color: $primary-contrast;
+        font-weight: 200;
+        font-size: 36px;
     }
 }

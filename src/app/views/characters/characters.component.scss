@@ -1,0 +1,17 @@
+@import '../../scss/variables';
+
+@import '../../scss/variables';
+
+.c-body{
+    background-color: $primary-dark;
+    .c-container{
+        height: 100%;
+        color: $primary-contrast;
+        padding-bottom: 120px;
+        &__title{
+            font-size: 30px;
+            text-align: center;
+            padding: 70px 0 100px;
+        }
+    }
+}
