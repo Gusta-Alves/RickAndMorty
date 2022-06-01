@@ -5,10 +5,12 @@ import { CoreRoutingModule } from './core-routing.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule
   ],
   exports: [
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }

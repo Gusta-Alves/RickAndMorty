@@ -36,12 +36,12 @@ $iphoneX: "(min-height: 800px)";
 }
 
 ::-moz-selection { /* Code for Firefox */
-    color: $primary;
+    color: $primary-contrast;
     background: $tertiary;
 }
 
 ::selection {
-    color: $primary;
+    color: $primary-contrast;
     background: $tertiary;
 }
 

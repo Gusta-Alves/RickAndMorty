@@ -7,9 +7,10 @@
     @include flexCenter;
     flex-direction: column;
     &__text{
-        margin: 20px 20px 0 20px;
+        margin: 20px 60px 0 60px;
         @media #{$mobile}{
             font-size: 16px;
+            margin: 20px 20px 0 20px;
         }
     }
 }
