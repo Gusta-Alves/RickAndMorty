@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ICharacterPage } from 'src/app/store/characters/characterPage.interface';
+import { loadCharactersPage } from 'src/app/store/characters/characters.action';
 
 @Component({
   selector: 'app-characters',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<{ charactersPage: ICharacterPage }>) { }
 
   ngOnInit(): void {
+    this.store.dispatch(loadCharactersPage());
   }
 
 }
