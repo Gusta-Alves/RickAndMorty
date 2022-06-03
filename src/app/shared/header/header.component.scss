@@ -3,23 +3,55 @@
 .c-header{
     width: 100%;
     position: relative;
-    height: 50vh;
-    background-image: url('../../../assets/imgs/rick-transparente.png');
-    background-position: bottom;
-    background-position-x: right;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: map-get($map: $primary-palette, $key: A200);
+    height: 100vh;
+    // background-image: url('../../../assets/imgs/thumb.png');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position-x: center;
+    // background-color: map-get($map: $primary-palette, $key: A200);
+    z-index: 0;
+    @media #{$mobile}{
+        height: 50vh;
+    }
+    .c-video{
+        &__video{
+            position: absolute; 
+            right: 0; 
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto; 
+            height: auto; 
+            z-index: -1000;
+            background-size: cover; 
+            @media #{$mobile}{
+                height: 50vh;
+            }
+        }
+    }
+    &__skin{
+        z-index: 1;
+        top: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgb(206,79,83);
+        background: linear-gradient(-116deg, rgba(206,79,83,0.4) 0%, rgba(204,51,102,0.7) 100%);
+    }
     &__container{
+        position: absolute;
+        z-index: 2;
         height: 100%;
         @include flexCenter;
-        justify-content: flex-start;
+        align-items: flex-end
     }
     &__img-content{
         @include flexCenter;
         flex-direction: column;
+        padding-bottom: 50px;
     }
     &__img{
+        width: 70%;
         @media #{$mobile}{
             width: 50%;
         }

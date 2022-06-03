@@ -1,14 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
+import { IInfo } from "src/app/models/info.interface";
 import { ICharacterPage } from "./characterPage.interface";
 import { setCharacters, setCharactersPage } from "./characters.action";
 
 export const initialCharacter: ICharacterPage = {
-    info: {
-        count: 0,
-        pages: 0,
-        next: '',
-        prev: '',
-    },
+    info: {} as IInfo,
     results: []
 };
 
