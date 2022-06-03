@@ -46,15 +46,15 @@
         align-items: flex-end
     }
     &__img-content{
-        @include flexCenter;
-        flex-direction: column;
         padding-bottom: 50px;
+        padding-left: 50px;
+        @media #{$tablet}{
+            padding-left: 0;
+            @include flexCenter;
+        }
     }
     &__img{
         width: 70%;
-        @media #{$mobile}{
-            width: 50%;
-        }
     }
     &__title{
         color: $primary-contrast;
