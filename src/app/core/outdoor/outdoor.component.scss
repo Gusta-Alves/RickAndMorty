@@ -1,16 +1,14 @@
 @import '../../scss/variables';
 
 .c-outdoor{
+    background-color: $primary-contrast;
     padding-bottom: 40px;
     min-height: 170px;
     @include flexCenter;
     flex-direction: column;
-    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 70%);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 75% 100%, 25% 100%, 0% 70%);
     &__text{
-        font-weight: 800;
-        background: -webkit-linear-gradient(#ce4f53, #cc3366);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @include text-gradient;
         margin: 20px 60px 0 60px;
         @media #{$mobile}{
             font-size: 16px;
@@ -19,7 +17,7 @@
     }
     &__author{
         font-weight: 700;
-        background: -webkit-linear-gradient(#ce4f53, #cc3366);
+        background: -webkit-linear-gradient($primary, $primary-dark);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }

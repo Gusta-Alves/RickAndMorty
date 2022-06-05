@@ -37,18 +37,22 @@ $iphoneX: "(min-height: 800px)";
 
 ::-moz-selection { /* Code for Firefox */
     color: $primary-contrast;
-    background: $tertiary;
+    background-color: $primary-dark;
 }
 
 ::selection {
     color: $primary-contrast;
-    background: $tertiary;
+    background-color: $primary-dark;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $primary;
+    background-color: $primary-dark;
 }
   
+body{
+    background: linear-gradient(-116deg, rgba($color: $primary, $alpha: 1) 0%, rgba($color: $primary-dark, $alpha: 1) 100%);
+}
+
 .c-container{
     margin: 0 auto;
         

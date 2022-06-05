@@ -4,17 +4,13 @@
     width: 100%;
     position: relative;
     height: 100vh;
-    // background-image: url('../../../assets/imgs/thumb.png');
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position-x: center;
-    // background-color: map-get($map: $primary-palette, $key: A200);
     z-index: 0;
     @media #{$mobile}{
         height: 50vh;
     }
     .c-video{
         &__video{
+            background: url('../../../assets/imgs/thumb.png') no-repeat;
             position: absolute; 
             right: 0; 
             bottom: 0;
@@ -36,7 +32,7 @@
         height: 100%;
         width: 100%;
         background: rgb(206,79,83);
-        background: linear-gradient(-116deg, rgba(206,79,83,0.4) 0%, rgba(204,51,102,0.7) 100%);
+        background: linear-gradient(-116deg, rgba($color: $primary, $alpha: 0.4) 0%, rgba($color: $primary-dark, $alpha: 0.7) 100%);
     }
     &__container{
         position: absolute;
