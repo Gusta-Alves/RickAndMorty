@@ -53,6 +53,8 @@ $warn-contrast: map-deep-get($warn-palette, contrast, A200);
 $secondary: #fecdaa;
 $tertiary: #fe827c;
 
+$gradient-primary: linear-gradient(-116deg, rgba($color: $primary, $alpha: 1) 0%, rgba($color: $primary-dark, $alpha: 1) 100%);
+
 @mixin text-gradient {
   font-weight: 800;
   background: -webkit-linear-gradient($primary, $primary-dark);

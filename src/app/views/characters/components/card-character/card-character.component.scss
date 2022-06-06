@@ -1,0 +1,37 @@
+
+@import '../../../../scss/variables';
+
+.c-card-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    $square-size: 150px;
+    &__img-container{
+        position: relative;
+        .c-img-content{
+            z-index: 1;
+            position: absolute;
+            width: $square-size;
+            height: $square-size;
+            top:0;
+            bottom:0;
+            margin-top:auto;
+            margin-bottom:auto;
+            box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+            &__img{
+                border-radius: 4px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .c-card{
+        width: 100%;
+        margin-left: $square-size / 2;
+        padding-left: $square-size / 2 + 20px;
+        &__text{
+            @include text-gradient;
+            margin-bottom: 5px;
+        }
+    }
+}

@@ -50,7 +50,7 @@ $iphoneX: "(min-height: 800px)";
 }
   
 body{
-    background: linear-gradient(-116deg, rgba($color: $primary, $alpha: 1) 0%, rgba($color: $primary-dark, $alpha: 1) 100%);
+    background: $gradient-primary;
 }
 
 .c-container{
