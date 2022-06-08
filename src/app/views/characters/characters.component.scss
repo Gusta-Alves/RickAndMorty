@@ -15,5 +15,9 @@
             grid-row-gap: 20px;
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+        &__button-container{
+            margin-top: 50px;
+            @include flexCenter;
+        }
     }
 }

@@ -5,5 +5,9 @@
         <div class="c-container__cards">
             <app-card-character *ngFor="let character of (Characters$ | async)" [Character]="character"></app-card-character>
         </div>
+        
+        <div class="c-container__button-container">
+            <app-custom-button theme="contrast">Load more</app-custom-button>
+        </div>
     </div>
 </div>
