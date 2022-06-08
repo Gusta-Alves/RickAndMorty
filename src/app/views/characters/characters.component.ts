@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ICharacter } from 'src/app/models/character.interface';
 import { ICharacterPage } from 'src/app/store/characters/characterPage.interface';
-import { loadCharactersPage } from 'src/app/store/characters/characters.action';
+import { loadCharactersNextPage, loadCharactersPage } from 'src/app/store/characters/characters.action';
 import { selectCharacters } from 'src/app/store/characters/characters.selectors';
 
 @Component({
@@ -19,6 +19,10 @@ export class CharactersComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadCharactersPage());
+  }
+  
+  onLoadMore(){
+    this.store.dispatch(loadCharactersNextPage());
   }
 
 }

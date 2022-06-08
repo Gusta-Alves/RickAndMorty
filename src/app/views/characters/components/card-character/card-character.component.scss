@@ -26,12 +26,64 @@
         }
     }
     .c-card{
+        display: inline-grid;
         width: 100%;
         margin-left: $square-size / 2;
         padding-left: $square-size / 2 + 20px;
         &__text{
-            @include text-gradient;
-            margin-bottom: 5px;
+            color: $primary;
+            margin-bottom: 3px;
+            &--span{
+                @include text-gradient;
+            }
+            .mat-icon {
+                height: 12px;
+                width: 12px;
+            }
+            .material-icons{
+                font-size: 12px;
+            }
+        }
+        &__icon{
+            margin-right: 5px;
+            &--Alive{
+                color: $accent;
+            }
+            &--Dead{
+                color: $accent;
+            }
+            &--unknown{
+                color:#bdbdbd;
+            }
+        }
+    }
+    .c-episodes-grid{
+        width: 100%;
+        height: 54px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: rgba($color: $primary, $alpha: 0.2);
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $gradient-primary;
+            border-radius: 4px;
+        }
+
+        .mat-raised-button{
+            background: $gradient-primary;
+            color: $primary-contrast;
+            min-width: 0;
+            padding: 0 16px;
+        }
+        &__episode{
+            margin-left: 3px;
         }
     }
 }

@@ -5,10 +5,18 @@
         </div>
     </div>
     <mat-card class="c-card">
-        <h2 class="c-card__text">Name: {{ Character?.name }}</h2>
-        <h3 class="c-card__text">Gender: {{ Character?.gender }}</h3>
-        <h3 class="c-card__text">Species: {{ Character?.species }}</h3>
-        <h3 class="c-card__text">Name: Rick Sanches</h3>
-        <h3 class="c-card__text">Name: Rick Sanches</h3>
+        <h2 class="c-card__text">Name: <span class="c-card__text--span">{{ Character?.name }}</span></h2>
+        <h3 class="c-card__text">
+            <mat-icon class="c-card__icon" [ngClass]="'c-card__icon--' + Character?.status">brightness_1</mat-icon>
+            <span class="c-card__text--span">{{ Character?.status }}</span>
+            - <span class="c-card__text--span">{{ Character?.species }}</span>
+            - <span class="c-card__text--span">{{ Character?.gender }}</span>
+        </h3>
+        <h3 class="c-card__text">Origin: <br> <span class="c-card__text--span">{{ Character?.origin?.name }}</span></h3>
+        <h3 class="c-card__text">Last known location: <br> <span class="c-card__text--span">{{ Character?.location?.name}}</span></h3>
+        <h3 class="c-card__text">Appears on episodes:</h3>
+        <div class="c-episodes-grid">
+            <button class="c-episodes-grid__episode" *ngFor="let episode of Character?.episode" mat-raised-button> {{ episode | episodeNumber}} </button>
+        </div>
     </mat-card>
 </section>
