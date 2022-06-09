@@ -4,8 +4,10 @@ import { ICharacterPage } from "./characterPage.interface";
 
 export const loadCharactersPage = createAction('[Character Component] Load Characters Page');
 
+export const loadCharactersNextPage = createAction('[Character Component] Load Next Page Characters Page');
+
 export const loadedCharacters = createAction('[Character Component] Loaded Characters');
 
-export const setCharactersPage = createAction('[Character Component] Set Characters Page', props<{ charactersPage: ICharacterPage }>());
+export const setStateCharacters = createAction('[Character Component] Set Characters Page', props<{ charactersPage: ICharacterPage }>());
 
-export const setCharacters = createAction('[Character Component] Set Characters', props<{ characters: ICharacter[] }>());
+export const addCharacters = createAction('[Character Component] Set Characters', props<{ charactersPage: ICharacterPage }>());

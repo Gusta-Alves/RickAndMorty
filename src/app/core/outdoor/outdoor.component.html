@@ -1,4 +1,4 @@
 <div class="c-outdoor">
-    <h2 class="c-outdoor__text">"{{ phrase?.phrase }}"</h2>
-    <p>{{ phrase?.author }}</p>
+    <h1 class="c-outdoor__text">"{{ phrase?.phrase || 'Nothing to read into there!' }}"</h1>
+    <p class="c-outdoor__author">{{ phrase?.author || 'Goldenfold.' }}</p>
 </div>

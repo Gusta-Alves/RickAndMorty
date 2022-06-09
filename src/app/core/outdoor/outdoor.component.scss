@@ -1,16 +1,24 @@
 @import '../../scss/variables';
 
 .c-outdoor{
-    min-height: 100px;
-    background-color: $accent;
-    color: $accent-contrast;
+    background-color: $primary-contrast;
+    padding-bottom: 40px;
+    min-height: 170px;
     @include flexCenter;
     flex-direction: column;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 75% 100%, 25% 100%, 0% 70%);
     &__text{
+        @include text-gradient;
         margin: 20px 60px 0 60px;
         @media #{$mobile}{
             font-size: 16px;
             margin: 20px 20px 0 20px;
         }
+    }
+    &__author{
+        font-weight: 700;
+        background: -webkit-linear-gradient($primary, $primary-dark);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }

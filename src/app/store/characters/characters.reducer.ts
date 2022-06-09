@@ -1,20 +1,16 @@
 import { createReducer, on } from "@ngrx/store";
+import { IInfo } from "src/app/models/info.interface";
 import { ICharacterPage } from "./characterPage.interface";
-import { setCharacters, setCharactersPage } from "./characters.action";
+import { addCharacters, setStateCharacters } from "./characters.action";
 
 export const initialCharacter: ICharacterPage = {
-    info: {
-        count: 0,
-        pages: 0,
-        next: '',
-        prev: '',
-    },
+    info: {} as IInfo,
     results: []
 };
 
 export const reducerCharacter = createReducer(
     initialCharacter,
-    on(setCharactersPage, (state, { charactersPage }) => {
+    on(setStateCharacters, (state, { charactersPage }) => {
         state = {
             ...state,
             ...charactersPage
@@ -22,10 +18,11 @@ export const reducerCharacter = createReducer(
 
         return state;
     }),
-    on(setCharacters, (state, { characters }) => {
+    on(addCharacters, (state, { charactersPage }) => {
         state = {
             ...state,
-            results: characters
+            info: charactersPage.info,
+            results: state.results.concat(charactersPage.results)
         }
 
         return state;

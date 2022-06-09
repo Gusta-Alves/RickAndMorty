@@ -1,28 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements AfterViewInit {
 
-  public title: string = 'Gallery';
+  constructor() { }
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-    this.onVerifyRoute();
+  ngAfterViewInit(): void {
+    
   }
-
-  onVerifyRoute(){
-    this.router.events.subscribe(event => {
-      if (event instanceof RoutesRecognized) {
-        let route = event.state.root.firstChild;
-        this.title = route?.data.title || '';
-      }
-    });
-  };
 
 }

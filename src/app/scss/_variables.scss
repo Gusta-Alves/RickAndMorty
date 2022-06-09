@@ -37,18 +37,22 @@ $iphoneX: "(min-height: 800px)";
 
 ::-moz-selection { /* Code for Firefox */
     color: $primary-contrast;
-    background: $tertiary;
+    background-color: $primary-dark;
 }
 
 ::selection {
     color: $primary-contrast;
-    background: $tertiary;
+    background-color: $primary-dark;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $primary;
+    background-color: $primary-dark;
 }
   
+body{
+    background: $gradient-primary;
+}
+
 .c-container{
     margin: 0 auto;
         
@@ -63,10 +67,10 @@ $iphoneX: "(min-height: 800px)";
     }
 
     @media (min-width: 992px) {
-        max-width: 960px;
+        max-width: 1030px;
     } 
 
     @media (min-width: 1200px) {
-        max-width: 1140px;
+        max-width: 1320px;
     }
 }
