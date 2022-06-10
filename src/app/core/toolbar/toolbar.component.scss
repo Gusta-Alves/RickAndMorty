@@ -1,2 +1,8 @@
 @import '../../scss/colors';
 
+.c-toolbar{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: transparent;
+}

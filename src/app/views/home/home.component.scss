@@ -1,0 +1,31 @@
+@import '../../scss/variables';
+
+.c-body{
+    .c-container{
+        height: 100%;
+        color: $primary-contrast;
+        &__title{
+            font-size: 30px;
+            text-align: center;
+            padding: 70px 0 30px;
+        }
+        .c-cards-container{
+            display: grid;
+            grid-column-gap: 24px;
+            grid-row-gap: 24px;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            height: 100%;
+            @media #{$xtablet}{
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media #{$mobile}{
+                grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+                padding: 0 40px;
+            }
+            @media #{$minimobile}{
+                padding: 0;
+            }
+        }
+    }
+}

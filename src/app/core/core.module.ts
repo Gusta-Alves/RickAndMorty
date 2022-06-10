@@ -5,18 +5,30 @@ import { CoreRoutingModule } from './core-routing.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FooterComponent } from './footer/footer.component';
+import { OutdoorService } from './services/outdoor.service';
+import { OutdoorComponent } from './outdoor/outdoor.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent,
+    OutdoorComponent
   ],
   imports: [
     CommonModule,
     CoreRoutingModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
   ],
   exports: [
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent,
+    OutdoorComponent
+  ],
+  providers: [
+    OutdoorService,
   ]
 })
 export class CoreModule { }

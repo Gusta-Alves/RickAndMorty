@@ -1,0 +1,27 @@
+@import '../../scss/variables';
+
+.c-content-img{
+    width: 100%;
+    @include flexCenter;
+    justify-content: flex-end;
+    &__img{
+        width: 30vw;
+        @media #{$tablet}{
+            width: 40vw;
+        }
+    }
+}
+
+.c-footer{
+    background-color: $primary-contrast;
+    height: 64px;
+    @include flexCenter;
+    &__text{
+        @include text-gradient;
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+    @media #{$mobile}{
+        height: 56px;
+    }
+}

@@ -6,11 +6,9 @@
 }
 
 $primary-palette: (
- A100: #506166,
- A200: #27373c,
- A300: #001116,
+ A200: #ce4f53,
+ A300: #cc3366,
  contrast: (
-   A100: white,
    A200: white,
    A300: white,
  )
@@ -39,11 +37,27 @@ $warn-palette: (
 );
 
 $primary: map-get($map: $primary-palette, $key: A200);
+$primary-dark: map-get($map: $primary-palette, $key: A300);
 $primary-contrast: map-deep-get($primary-palette, contrast, A200);
+
+$accent-light: map-get($map: $accent-palette, $key: A200);
 $accent: map-get($map: $accent-palette, $key: A200);
+$accent-dark: map-get($map: $accent-palette, $key: A200);
 $accent-contrast: map-deep-get($accent-palette, contrast, A200);
+
+$warn-light: map-get($map: $warn-palette, $key: A100);
 $warn: map-get($map: $warn-palette, $key: A200);
+$warn-dark: map-get($map: $warn-palette, $key: A300);
 $warn-contrast: map-deep-get($warn-palette, contrast, A200);
 
 $secondary: #fecdaa;
 $tertiary: #fe827c;
+
+$gradient-primary: linear-gradient(-116deg, rgba($color: $primary, $alpha: 1) 0%, rgba($color: $primary-dark, $alpha: 1) 100%);
+
+@mixin text-gradient {
+  font-weight: 800;
+  background: -webkit-linear-gradient($primary, $primary-dark);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

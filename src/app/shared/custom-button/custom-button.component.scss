@@ -1,0 +1,15 @@
+@import '../../scss/variables';
+
+.c-custom-button{
+    &--primary{
+        background: $gradient-primary;
+    }
+    &--contrast{
+        background: $primary-contrast;
+        &::ng-deep{
+            .mat-button-wrapper{
+                @include text-gradient;
+            }
+        }
+    }
+}

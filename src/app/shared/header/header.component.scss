@@ -1,0 +1,60 @@
+@import '../../scss/variables';
+
+.c-header{
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    z-index: 0;
+    @media #{$mobile}{
+        height: 50vh;
+    }
+    .c-video{
+        &__video{
+            background: url('../../../assets/imgs/thumb.png') no-repeat;
+            position: absolute; 
+            right: 0; 
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto; 
+            height: auto; 
+            z-index: -1000;
+            background-size: cover; 
+            @media #{$mobile}{
+                height: 50vh;
+            }
+        }
+    }
+    &__skin{
+        z-index: 1;
+        top: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgb(206,79,83);
+        background: linear-gradient(-116deg, rgba($color: $primary, $alpha: 0.4) 0%, rgba($color: $primary-dark, $alpha: 0.7) 100%);
+    }
+    &__container{
+        position: absolute;
+        z-index: 2;
+        height: 100%;
+        @include flexCenter;
+        align-items: flex-end
+    }
+    &__img-content{
+        padding-bottom: 50px;
+        padding-left: 50px;
+        @media #{$tablet}{
+            padding-left: 0;
+            @include flexCenter;
+        }
+    }
+    &__img{
+        width: 70%;
+    }
+    &__title{
+        color: $primary-contrast;
+        font-weight: 200;
+        font-size: 36px;
+    }
+}

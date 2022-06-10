@@ -1,0 +1,89 @@
+
+@import '../../../../scss/variables';
+
+.c-card-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    $square-size: 150px;
+    &__img-container{
+        position: relative;
+        .c-img-content{
+            z-index: 1;
+            position: absolute;
+            width: $square-size;
+            height: $square-size;
+            top:0;
+            bottom:0;
+            margin-top:auto;
+            margin-bottom:auto;
+            box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+            &__img{
+                border-radius: 4px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .c-card{
+        display: inline-grid;
+        width: 100%;
+        margin-left: $square-size / 2;
+        padding-left: $square-size / 2 + 20px;
+        &__text{
+            color: $primary;
+            margin-bottom: 3px;
+            &--span{
+                @include text-gradient;
+            }
+            .mat-icon {
+                height: 12px;
+                width: 12px;
+            }
+            .material-icons{
+                font-size: 12px;
+            }
+        }
+        &__icon{
+            margin-right: 5px;
+            &--Alive{
+                color: $accent;
+            }
+            &--Dead{
+                color: $accent;
+            }
+            &--unknown{
+                color:#bdbdbd;
+            }
+        }
+    }
+    .c-episodes-grid{
+        width: 100%;
+        height: 54px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: rgba($color: $primary, $alpha: 0.2);
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $gradient-primary;
+            border-radius: 4px;
+        }
+
+        .mat-raised-button{
+            background: $gradient-primary;
+            color: $primary-contrast;
+            min-width: 0;
+            padding: 0 16px;
+        }
+        &__episode{
+            margin-left: 3px;
+        }
+    }
+}
