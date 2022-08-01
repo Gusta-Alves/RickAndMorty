@@ -11,3 +11,5 @@ export const loadedCharacters = createAction('[Character Component] Loaded Chara
 export const setStateCharacters = createAction('[Character Component] Set Characters Page', props<{ charactersPage: ICharacterPage }>());
 
 export const addCharacters = createAction('[Character Component] Set Characters', props<{ charactersPage: ICharacterPage }>());
+
+export const searchCharactersName = createAction('[Character Component] Search Characters Name', props<{ charactersName: string }>());

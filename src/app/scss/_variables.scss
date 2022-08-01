@@ -51,6 +51,10 @@ $iphoneX: "(min-height: 800px)";
   
 body{
     background: $gradient-primary;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .c-container{
@@ -72,5 +76,37 @@ body{
 
     @media (min-width: 1200px) {
         max-width: 1320px;
+    }
+}
+
+::ng-deep{
+    .mat-dialog-container{
+        background: $primary-contrast;
+        color: $primary-contrast;
+    }
+    .mat-divider{
+        border-top-color: rgba($color: $primary-contrast, $alpha: 0.5);
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex{
+        color: white;
+    }
+    .mat-input-element{
+        color: $primary-contrast!important;
+        caret-color: $primary-contrast!important;
+        &::placeholder{
+            color: rgba($color: $primary-contrast, $alpha: 0.5);
+        }
+    }
+    .mat-form-field-appearance-standard .mat-form-field-underline{
+        background-color: $primary-contrast;
+    }
+    .mat-form-field-ripple{
+        background-color: $primary-contrast;
+    }
+    mat-label {
+        color: $primary-contrast;
+    }
+    .mat-form-field-appearance-standard:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{
+        background-color: $primary-contrast;
     }
 }

@@ -8,9 +8,9 @@
     color: $accent-contrast;
     cursor: pointer;
     &__img{
-        height: 350px; 
+        // height: 350px; 
         @media #{$mobile}{
-            height: 250px; 
+            // height: 250px; 
         }      
     }
     &__header{

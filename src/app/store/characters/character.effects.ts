@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { BaseService } from "src/app/services/base.service";
 import { ICharacterPage } from "./characterPage.interface";
-import { loadCharactersNextPage, loadCharactersPage, loadedCharacters, addCharacters, setStateCharacters } from "./characters.action";
+import { loadCharactersNextPage, loadCharactersPage, loadedCharacters, addCharacters, setStateCharacters, searchCharactersName } from "./characters.action";
 import { selectCharactersPage } from "./characters.selectors";
 import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators'
 import { of } from "rxjs";
@@ -46,9 +46,24 @@ export class CharacterEffects {
                 switchMap(([_, characters]) => {
                     const httpParams = new HttpParams({ fromString: characters.info?.next?.split('?')![1] });
                     const nextPage  = httpParams.get('page');
-                    return this.baseService.onGet<ICharacterPage>(`character?page=${nextPage}`)
+                    const name  = httpParams.get('name');
+                    return this.baseService.onGet<ICharacterPage>(`character?page=${nextPage}&name=${name || ''}`)
                         .pipe(
                             tap((data: ICharacterPage) => this.store.dispatch(addCharacters({ charactersPage: data }))),
+                            map(() => loadedCharacters())
+                        )
+                })
+            )
+    )
+
+    SearchNamePageCharacter = createEffect(
+        () => this.actions$
+            .pipe(
+                ofType(searchCharactersName),
+                switchMap((props) => {
+                    return this.baseService.onGet<ICharacterPage>(`character?name=${props.charactersName}`)
+                        .pipe(
+                            tap((data: ICharacterPage) => this.store.dispatch(setStateCharacters({ charactersPage: data }))),
                             map(() => loadedCharacters())
                         )
                 })

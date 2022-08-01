@@ -9,11 +9,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
 import { EpisodeNumberPipe } from 'src/app/pipes/episode-number.pipe';
+import { FilterCharactersComponent } from './components/filter-characters/filter-characters.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     CharactersComponent,
     CardCharacterComponent,
     EpisodeNumberPipe,
+    FilterCharactersComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +27,10 @@ import { EpisodeNumberPipe } from 'src/app/pipes/episode-number.pipe';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class CharactersModule { }
