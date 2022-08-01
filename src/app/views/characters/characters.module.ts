@@ -13,6 +13,7 @@ import { FilterCharactersComponent } from './components/filter-characters/filter
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     CharactersComponent,
@@ -31,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSelectModule
   ]
 })
 export class CharactersModule { }

@@ -1,4 +1,23 @@
-<mat-form-field appearance="standard" class="c-search">
-    <mat-label>Search by name</mat-label>
-    <input matInput placeholder="Bearded Lady" [formControl]="searchInput">
-</mat-form-field>
+<form [formGroup]="filterGroup" class="c-search">
+    <mat-form-field appearance="standard" class="c-search__form c-search__form--input">
+        <mat-label>Search by name</mat-label>
+        <input matInput placeholder="Bearded Lady" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="c-search__form c-search__form--select">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+            <mat-option value="">
+                Default
+            </mat-option>
+            <mat-option value="alive">
+                Alive
+            </mat-option>
+            <mat-option value="dead">
+                Dead
+            </mat-option>
+            <mat-option value="unknown">
+                Unknown
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

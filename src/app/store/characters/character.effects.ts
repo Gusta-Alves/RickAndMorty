@@ -53,7 +53,9 @@ export class CharacterEffects {
                     const httpParams = new HttpParams({ fromString: characters.info?.next?.split('?')![1] });
                     const nextPage  = httpParams.get('page');
                     const name  = httpParams.get('name');
-                    return this.baseService.onGet<ICharacterPage>(`character?page=${nextPage}&name=${name || ''}`)
+                    const status  = httpParams.get('status');
+                    const location  = httpParams.get('location');
+                    return this.baseService.onGet<ICharacterPage>(`character?page=${nextPage}&name=${name || ''}&status=${status || ''}&location=${location || ''}`)
                         .pipe(
                             tap((data: ICharacterPage) => this.store.dispatch(addCharacters({ charactersPage: data }))),
                             map(() => loadedCharacters()),
@@ -71,7 +73,7 @@ export class CharacterEffects {
             .pipe(
                 ofType(searchCharactersName),
                 switchMap((props) => {
-                    return this.baseService.onGet<ICharacterPage>(`character?name=${props.charactersName}`)
+                    return this.baseService.onGet<ICharacterPage>(`character?name=${props.name || ''}&status=${props.status || ''}&=location=${props.location || ''}`)
                         .pipe(
                             tap((data: ICharacterPage) => this.store.dispatch(setStateCharacters({ charactersPage: data }))),
                             map(() => loadedCharacters()),
