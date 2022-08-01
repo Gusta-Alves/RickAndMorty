@@ -5,9 +5,10 @@ import { BaseService } from "src/app/services/base.service";
 import { ICharacterPage } from "./characterPage.interface";
 import { loadCharactersNextPage, loadCharactersPage, loadedCharacters, addCharacters, setStateCharacters, searchCharactersName } from "./characters.action";
 import { selectCharactersPage } from "./characters.selectors";
-import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators'
-import { of } from "rxjs";
+import { catchError, map, switchMap, tap, withLatestFrom } from 'rxjs/operators'
+import { of, throwError } from "rxjs";
 import { HttpParams } from "@angular/common/http";
+import { SnackBarService } from "src/app/services/snack-bar.service";
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +17,8 @@ export class CharacterEffects {
 
     constructor(private actions$: Actions,
         private baseService: BaseService,
-        private store: Store<{ characters: ICharacterPage }>) { }
+        private store: Store<{ characters: ICharacterPage }>,
+        private snackBarService: SnackBarService) { }
 
     loadCharacters = createEffect(
         () => this.actions$
@@ -29,7 +31,11 @@ export class CharacterEffects {
                 if(characters.results.length === 0) return this.baseService.onGet<ICharacterPage>('character')
                     .pipe(
                         tap((data: ICharacterPage) => this.store.dispatch(setStateCharacters({ charactersPage: data }))),
-                        map(() => loadedCharacters())
+                        map(() => loadedCharacters()),
+                        catchError((error: any) => {
+                            this.snackBarService.openSnackBar(error?.error?.error, 'ok', 'error-snackbar');
+                            return throwError(error);
+                        })
                     )
                 return of(loadedCharacters())
             }),
@@ -50,7 +56,11 @@ export class CharacterEffects {
                     return this.baseService.onGet<ICharacterPage>(`character?page=${nextPage}&name=${name || ''}`)
                         .pipe(
                             tap((data: ICharacterPage) => this.store.dispatch(addCharacters({ charactersPage: data }))),
-                            map(() => loadedCharacters())
+                            map(() => loadedCharacters()),
+                            catchError((error: any) => {
+                                this.snackBarService.openSnackBar(error?.error?.error, 'ok', 'error-snackbar');
+                                return throwError(error);
+                            })
                         )
                 })
             )
@@ -64,8 +74,13 @@ export class CharacterEffects {
                     return this.baseService.onGet<ICharacterPage>(`character?name=${props.charactersName}`)
                         .pipe(
                             tap((data: ICharacterPage) => this.store.dispatch(setStateCharacters({ charactersPage: data }))),
-                            map(() => loadedCharacters())
+                            map(() => loadedCharacters()),
+                            catchError((error: any) => {
+                                this.snackBarService.openSnackBar(error?.error?.error, 'ok', 'error-snackbar');
+                                return throwError(error);
+                            })
                         )
+                        
                 })
             )
     )

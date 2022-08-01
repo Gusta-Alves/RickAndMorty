@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { CharacterEffects } from './store/characters/character.effects';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,6 +23,7 @@ import { CharacterEffects } from './store/characters/character.effects';
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
+    MatSnackBarModule,
     StoreModule.forRoot({ charactersPage: reducerCharacter }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([CharacterEffects]),
