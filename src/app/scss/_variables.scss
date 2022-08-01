@@ -97,6 +97,9 @@ body{
             color: rgba($color: $primary-contrast, $alpha: 0.5);
         }
     }
+    .mat-select-value{
+        color: $primary-contrast;
+    }
     .mat-form-field-appearance-standard .mat-form-field-underline{
         background-color: $primary-contrast;
     }
