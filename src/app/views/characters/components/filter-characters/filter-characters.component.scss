@@ -1,4 +1,5 @@
 @use "sass:math";
+@import '../../../../scss/variables';
 
 .c-search{
     width: 100%;
@@ -7,9 +8,15 @@
         padding: math.div($padding-horizontal, 2);
         &--input{
             width: calc(50% - #{$padding-horizontal});
+            @media #{$mobile}{
+                width: 100%;
+            }
         }
         &--select{
             width: calc(25% - #{$padding-horizontal});
+            @media #{$mobile}{
+                width: calc(50% - #{$padding-horizontal});
+            }
         }
     }
 }
