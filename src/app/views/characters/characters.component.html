@@ -5,11 +5,11 @@
         <app-filter-characters></app-filter-characters>
 
         <div class="c-container__cards">
-            <app-card-character *ngFor="let character of (Characters$ | async)" [Character]="character"></app-card-character>
+            <app-card-character *ngFor="let character of (Characters$ | async)?.results" [Character]="character"></app-card-character>
         </div>
         
         <div class="c-container__button-container">
-            <app-custom-button (click)="onLoadMore()" theme="contrast">Load more</app-custom-button>
+            <app-custom-button *ngIf="(Characters$ | async)?.info?.next" (click)="onLoadMore()" theme="contrast">Load more</app-custom-button>
         </div>
     </div>
 </div>

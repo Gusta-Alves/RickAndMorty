@@ -1,12 +1,15 @@
+@use "sass:math";
+
 .c-search{
     width: 100%;
     &__form{
-        margin: 5px;
+        $padding-horizontal: 10px;
+        padding: math.div($padding-horizontal, 2);
         &--input{
-            width: 50%;
+            width: calc(50% - #{$padding-horizontal});
         }
         &--select{
-            width: 25%;
+            width: calc(25% - #{$padding-horizontal});
         }
     }
 }

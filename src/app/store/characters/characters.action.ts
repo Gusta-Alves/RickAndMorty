@@ -12,4 +12,4 @@ export const setStateCharacters = createAction('[Character Component] Set Charac
 
 export const addCharacters = createAction('[Character Component] Set Characters', props<{ charactersPage: ICharacterPage }>());
 
-export const searchCharactersName = createAction('[Character Component] Search Characters Name', props<{ name: string, status: string, location: string }>());
+export const searchCharactersName = createAction('[Character Component] Search Characters Name', props<{ name: string, status: string, location: string, gender: string }>());

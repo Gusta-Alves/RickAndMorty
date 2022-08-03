@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ICharacter } from 'src/app/models/character.interface';
 import { ICharacterPage } from 'src/app/store/characters/characterPage.interface';
 import { loadCharactersNextPage, loadCharactersPage } from 'src/app/store/characters/characters.action';
-import { selectCharacters } from 'src/app/store/characters/characters.selectors';
+import { selectCharacters, selectCharactersPage } from 'src/app/store/characters/characters.selectors';
 
 @Component({
   selector: 'app-characters',
@@ -13,7 +13,7 @@ import { selectCharacters } from 'src/app/store/characters/characters.selectors'
 })
 export class CharactersComponent implements OnInit {
 
-  public Characters$: Observable<ICharacter[]> = this.store.select(selectCharacters);
+  public Characters$: Observable<ICharacterPage> = this.store.select(selectCharactersPage);
 
   constructor(private store: Store<{ charactersPage: ICharacterPage }>) { }
 

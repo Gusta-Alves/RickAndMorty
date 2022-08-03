@@ -27,6 +27,7 @@ export class FilterCharactersComponent implements OnInit {
       name: [null],
       location: [null],
       status: [null],
+      gender: [null],
     })
   }
 
@@ -34,7 +35,7 @@ export class FilterCharactersComponent implements OnInit {
     this.filterGroup.valueChanges
     .pipe(
       debounceTime(500),
-      tap(value => this.store.dispatch(searchCharactersName({ name: value.name, status: value.status, location: value.location }))),
+      tap(value => this.store.dispatch(searchCharactersName({ name: value.name, status: value.status, location: value.location, gender: value.gender }))),
     ).subscribe();
   }
 

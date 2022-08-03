@@ -7,13 +7,33 @@
         <mat-label>Status</mat-label>
         <mat-select formControlName="status">
             <mat-option value="">
-                Status
+                All
             </mat-option>
             <mat-option value="alive">
                 Alive
             </mat-option>
             <mat-option value="dead">
                 Dead
+            </mat-option>
+            <mat-option value="unknown">
+                Unknown
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="c-search__form c-search__form--select">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+            <mat-option value="">
+                All
+            </mat-option>
+            <mat-option value="female">
+                Female
+            </mat-option>
+            <mat-option value="male">
+                Male
+            </mat-option>
+            <mat-option value="genderless">
+                Genderless
             </mat-option>
             <mat-option value="unknown">
                 Unknown
