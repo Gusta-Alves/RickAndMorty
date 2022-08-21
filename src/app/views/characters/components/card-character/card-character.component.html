@@ -1,22 +1,33 @@
-<section class="c-card-container">
+<section class="c-card-container" [ngClass]="{'c-card-container--loading': isLoading}">
     <div class="c-card-container__img-container">
         <div class="c-img-content">
-            <img class="c-img-content__img" [src]="Character?.image" alt="">
+            <img class="c-img-content__img" *ngIf="isLoading">
+            <img class="c-img-content__img" [src]="Character?.image" *ngIf="!isLoading">
         </div>
     </div>
     <mat-card class="c-card">
-        <h2 class="c-card__text">Name: <span class="c-card__text--span">{{ Character?.name }}</span></h2>
-        <h3 class="c-card__text">
-            <mat-icon class="c-card__icon" [ngClass]="'c-card__icon--' + Character?.status">brightness_1</mat-icon>
-            <span class="c-card__text--span">{{ Character?.status }}</span>
-            - <span class="c-card__text--span">{{ Character?.species }}</span>
-            - <span class="c-card__text--span">{{ Character?.gender }}</span>
-        </h3>
-        <h3 class="c-card__text">Origin: <br> <span class="c-card__text--span">{{ Character?.origin?.name }}</span></h3>
-        <h3 class="c-card__text">Last known location: <br> <span class="c-card__text--span">{{ Character?.location?.name}}</span></h3>
+        <div class="c-card__status-box">
+            <h2 class="c-card__text">Name: </h2>
+            <h3 class="c-card__text-content" [ngStyle]="{'width': randomBetween() + '%'}">{{ Character?.name }}</h3>
+        </div>
+        <div class="c-card__status-box">
+            <h3 class="c-card__text">
+                <mat-icon class="c-card__icon" [ngClass]="'c-card__icon--' + Character?.status">brightness_1</mat-icon>
+            </h3>
+            <h3 class="c-card__text-content">{{ Character?.status }}</h3>
+            <h3 class="c-card__text-content">{{ Character?.species }}</h3>
+            <h3 class="c-card__text-content">{{ Character?.gender }}</h3>
+        </div>
+        <h3 class="c-card__text">Origin:</h3>
+        <h3 class="c-card__text-content" [ngStyle]="{'width': randomBetween() + '%'}">{{ Character?.origin?.name }}</h3>
+        <h3 class="c-card__text">Last known location:</h3>
+        <h3 class="c-card__text-content" [ngStyle]="{'width': randomBetween() + '%'}">{{ Character?.location?.name }}</h3>
         <h3 class="c-card__text">Appears on episodes:</h3>
-        <div class="c-episodes-grid">
+        <div class="c-episodes-grid" *ngIf="!isLoading">
             <button class="c-episodes-grid__episode" *ngFor="let episode of Character?.episode" mat-raised-button> {{ episode | episodeNumber}} </button>
+        </div>
+        <div class="c-episodes-grid" *ngIf="isLoading">
+            <button class="c-episodes-grid__episode" *ngFor="let episode of [].constructor(randomBetween(3, 8, true))" mat-raised-button></button>
         </div>
     </mat-card>
 </section>

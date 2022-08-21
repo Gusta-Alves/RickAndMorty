@@ -113,3 +113,21 @@ body{
         background-color: $primary-contrast;
     }
 }
+
+@keyframes pulse {
+    0% {
+        background: $primary-dark;
+    }
+
+    50% {
+        background: $accent;
+    }
+
+    100% {
+        background: $primary-dark;
+    }
+}
+
+@mixin text-skeleton-radius {
+    border-radius: 5px;
+}

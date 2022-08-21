@@ -32,16 +32,32 @@
         padding-left: $square-size / 2 + 20px;
         &__text{
             color: $primary;
-            margin-bottom: 3px;
-            &--span{
-                @include text-gradient;
-            }
+            margin-bottom: 2px;
             .mat-icon {
                 height: 12px;
                 width: 12px;
             }
             .material-icons{
                 font-size: 12px;
+            }
+        }
+        &__status-box{
+            @include flexCenter;
+            justify-content: flex-start;
+        }
+        &__text-content{
+            @include text-gradient;
+            margin-top: -2px;
+            margin-bottom: 2px;
+            &:nth-child(2){
+                &::after{
+                    content: '\00a0-\00a0';
+                }
+            }
+            &:nth-child(3){
+                &::after{
+                    content: '\00a0-\00a0';
+                }
             }
         }
         &__icon{
@@ -84,6 +100,75 @@
         }
         &__episode{
             margin-left: 3px;
+        }
+    }
+}
+
+.c-card-container--loading{
+    .c-img-content{
+        &__img{
+            animation: pulse 2s infinite ease-in-out;
+        }
+    }
+    .c-card{
+        &__icon{
+            border-radius: 100%;
+            animation: pulse 2s infinite ease-in-out;
+            &--Alive{
+                color: transparent;
+            }
+            &--Dead{
+                color: transparent;
+            }
+            &--unknown{
+                color: transparent;
+            }
+        }
+        &__text{
+            &--span{
+                background: none;
+                @include text-skeleton-radius();
+                animation: pulse 2s infinite ease-in-out;
+                width: 150px;
+            }
+        }
+        &__status-box{
+            &:nth-child(1){
+                .c-card__text-content{
+                    margin-left: 5px;
+                }
+            }
+            &:nth-child(2){
+                .c-card__text-content{
+                    &:nth-child(2){
+                        width: 70px;
+                        margin-right: 5px;
+                    }
+                    &:nth-child(3){
+                        width: 70px;
+                        margin-right: 5px;
+                    }
+                    &:nth-child(4){
+                        width: 70px;
+                    }
+                }
+            }
+        }
+        &__text-content{
+            background: none;
+            @include text-skeleton-radius();
+            animation: pulse 2s infinite ease-in-out;
+            height: 15px;
+            margin-bottom: 0;
+        }
+    }
+    .c-episodes-grid{
+        &__episode{
+            margin-left: 3px;
+            animation: pulse 2s infinite ease-in-out;
+            &::after{
+                content: '\00a0\00a0';
+            }
         }
     }
 }
