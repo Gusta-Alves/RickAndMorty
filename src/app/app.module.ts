@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { CharacterEffects } from './store/characters/character.effects';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CharacterService } from './views/characters/services/character.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -28,7 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([CharacterEffects]),
   ],
-  providers: [],
+  providers: [CharacterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

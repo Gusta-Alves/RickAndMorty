@@ -1,11 +1,12 @@
 import { createReducer, on } from "@ngrx/store";
 import { IInfo } from "src/app/models/info.interface";
 import { ICharacterPage } from "./characterPage.interface";
-import { addCharacters, setStateCharacters } from "./characters.action";
+import { addCharacters, setStateCharacters, setStateCharactersLoading } from "./characters.action";
 
 export const initialCharacter: ICharacterPage = {
     info: {} as IInfo,
-    results: []
+    results: [],
+    isLoading: false
 };
 
 export const reducerCharacter = createReducer(
@@ -23,6 +24,14 @@ export const reducerCharacter = createReducer(
             ...state,
             info: charactersPage.info,
             results: state.results.concat(charactersPage.results)
+        }
+
+        return state;
+    }),
+    on(setStateCharactersLoading, (state, { isLoading }) => {
+        state = {
+            ...state,
+            isLoading: isLoading
         }
 
         return state;

@@ -12,3 +12,8 @@ export const selectCharacters = createSelector(
     selectCharactersPage,
     (characterPage) => characterPage.results
 )
+
+export const selectCharactersLoading = createSelector(
+    selectCharactersPage,
+    (characterPage) => characterPage.isLoading
+)

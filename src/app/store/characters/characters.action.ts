@@ -10,6 +10,10 @@ export const loadedCharacters = createAction('[Character Component] Loaded Chara
 
 export const setStateCharacters = createAction('[Character Component] Set Characters Page', props<{ charactersPage: ICharacterPage }>());
 
+export const setStateCharactersLoading = createAction('[Character Component] Set Characters Loading', props<{ isLoading: boolean }>());
+
+export const getCharactersLoading = createAction('[Character Component] Get Characters Loading');
+
 export const addCharacters = createAction('[Character Component] Set Characters', props<{ charactersPage: ICharacterPage }>());
 
 export const searchCharactersName = createAction('[Character Component] Search Characters Name', props<{ name: string, status: string, location: string, gender: string }>());

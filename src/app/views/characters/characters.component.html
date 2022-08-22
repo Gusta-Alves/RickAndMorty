@@ -6,6 +6,12 @@
 
         <div class="c-container__cards">
             <app-card-character *ngFor="let character of (Characters$ | async)?.results" [Character]="character"></app-card-character>
+            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
         </div>
         
         <div class="c-container__button-container">

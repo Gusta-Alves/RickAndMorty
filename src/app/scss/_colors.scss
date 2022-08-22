@@ -52,6 +52,7 @@ $warn-contrast: map-deep-get($warn-palette, contrast, A200);
 
 $secondary: #fecdaa;
 $tertiary: #fe827c;
+$gray: #bdbdbd;
 
 $gradient-primary: linear-gradient(-116deg, rgba($color: $primary, $alpha: 1) 0%, rgba($color: $primary-dark, $alpha: 1) 100%);
 
