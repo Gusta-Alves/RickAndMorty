@@ -150,15 +150,24 @@
             &:nth-child(2){
                 .c-card__text-content{
                     &:nth-child(2){
-                        width: 70px;
+                        width: 15%;
                         margin-right: 5px;
+                        @media #{$mobile}{
+                            width: 20%;
+                        }
                     }
                     &:nth-child(3){
-                        width: 70px;
+                        width: 15%;
                         margin-right: 5px;
+                        @media #{$mobile}{
+                            width: 20%;
+                        }
                     }
                     &:nth-child(4){
-                        width: 70px;
+                        width: 15%;
+                        @media #{$mobile}{
+                            width: 20%;
+                        }
                     }
                 }
             }
