@@ -11,7 +11,7 @@ export class CharacterService extends BaseService{
         this.store.dispatch(setStateCharactersLoading({isLoading: true}));
         return this.onGet<ICharacterPage>(url)
             .pipe(
-                delay(3000),
+                delay(300),
                 finalize(() => {
                     this.store.dispatch(setStateCharactersLoading({isLoading: false}));
                 })

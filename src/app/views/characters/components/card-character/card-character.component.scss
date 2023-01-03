@@ -7,6 +7,7 @@
     display: flex;
     $square-size: 150px;
     &__img-container{
+        border: none;
         position: relative;
         .c-img-content{
             z-index: 1;
