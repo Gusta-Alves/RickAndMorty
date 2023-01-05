@@ -1,0 +1,11 @@
+.c-body{
+    .c-container{
+        height: 100%;
+        color: $primary-contrast;
+        &__title{
+            font-size: 30px;
+            text-align: center;
+            padding-top: 70px;
+        }
+    }
+}
