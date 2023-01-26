@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CharacterEffects } from './store/characters/character.effects';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CharacterService } from './views/characters/services/character.service';
+import { episodeReducer } from './store/episodes/episodes.reducer';
 @NgModule({
   declarations: [
     AppComponent
@@ -25,7 +26,7 @@ import { CharacterService } from './views/characters/services/character.service'
     CoreModule,
     SharedModule,
     MatSnackBarModule,
-    StoreModule.forRoot({ charactersPage: reducerCharacter }),
+    StoreModule.forRoot({ charactersPage: reducerCharacter, episodesPage: episodeReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([CharacterEffects]),
   ],

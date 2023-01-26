@@ -1,2 +1,15 @@
 @import '../../scss/variables';
 
+.c-body{
+    .c-container{
+        &__cards{
+            display: grid;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            @media #{$xtablet}{
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    }
+}

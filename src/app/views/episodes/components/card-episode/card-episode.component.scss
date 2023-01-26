@@ -1,0 +1,57 @@
+@import '../../../../scss/variables';
+
+.c-card-container{
+    .c-card{
+        padding: 0;
+        min-height: 160px;
+        padding: 80px 0 40px;
+        @include flexCenter;
+        position: relative;
+        width: 240px;
+        border-radius: 20px;
+        // -webkit-mask: radial-gradient(30px,#0000 98%,#000) -100px -100px;
+        // -webkit-mask: radial-gradient(circle at 88% 12%, #0000 clamp(48px, 4vw, 60px), #000 30.5px);
+        -webkit-mask-box-image: url(../../../../../assets/imgs/bola.svg);
+        mask-size: 10px;
+        // &::after{
+        //     content: '';
+        //     position: absolute;
+        //     width: 60px;
+        //     height: 60px;
+        //     border-radius: 60px;
+
+        // }
+        &__text{
+            text-align: center;
+            margin: 0 5px;
+            color: $primary;
+            margin-bottom: 2px;
+        }
+        &__numb{
+            color: $primary;
+            position: absolute;
+            bottom: 0;
+            left: 5px;
+            border: 0;
+            padding: 0;
+            line-height: 25px;
+            font-size: 40px;
+            font-weight: 700;
+        }
+        // &__ball{
+        //     position: absolute;
+        //     border-radius: 100%;
+        //     background-color: purple;
+        //     &--big{
+                
+        //         top: 0;
+        //         right: 0;
+        //         height: 60px;
+        //         width: 60px;
+        //     }
+        //     &--small{
+        //     }
+        // }
+    }
+}
+
