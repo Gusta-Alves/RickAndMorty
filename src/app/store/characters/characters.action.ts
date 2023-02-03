@@ -1,19 +1,39 @@
-import { createAction, props } from "@ngrx/store";
-import { ICharacter } from "src/app/models/character.interface";
+import { Action } from "@ngrx/store";
 import { ICharacterPage } from "./characterPage.interface";
 
-export const loadCharactersPage = createAction('[Character Component] Load Characters Page');
+export enum CharactersActionTypes {
+    CharacterRequest = '[Character] Load Characters Page',
+    CharacterLoad = '[Character] Load Characters',
+    CharacterIsLoading = '[Character] Set Characters Loading',
+    CharacterSetState = '[Character] Set Characters',
+    CharacterLoaded = '[Character Component] Loaded Characters',
+    CharacterSearch = '[Character Component] Search Characters'
+}
 
-export const loadCharactersNextPage = createAction('[Character Component] Load Next Page Characters Page');
+export class CharacterRequested implements Action {
+    readonly type = CharactersActionTypes.CharacterRequest;
+    constructor(public payload: { next: boolean }) { }
+}
+export class CharacterLoad implements Action {
+    readonly type = CharactersActionTypes.CharacterLoad;
+    constructor(public payload: { characterPage: ICharacterPage }) { }
+}
+export class CharacterLoaded implements Action {
+    readonly type = CharactersActionTypes.CharacterLoaded;
+    constructor() { }
+}
+export class CharacterIsLoading implements Action {
+    readonly type = CharactersActionTypes.CharacterIsLoading;
+    constructor(public payload: { isLoading: boolean }) { }
+}
+export class CharacterSetState implements Action {
+    readonly type = CharactersActionTypes.CharacterSetState;
+    constructor(public payload: { characterPage: ICharacterPage }) { }
+}
+export class CharacterSearch implements Action {
+    readonly type = CharactersActionTypes.CharacterSearch;
+    constructor(public payload: { name: string, status: string, location: string, gender: string }) { }
+}
 
-export const loadedCharacters = createAction('[Character Component] Loaded Characters');
-
-export const setStateCharacters = createAction('[Character Component] Set Characters Page', props<{ charactersPage: ICharacterPage }>());
-
-export const setStateCharactersLoading = createAction('[Character Component] Set Characters Loading', props<{ isLoading: boolean }>());
-
-export const getCharactersLoading = createAction('[Character Component] Get Characters Loading');
-
-export const addCharacters = createAction('[Character Component] Set Characters', props<{ charactersPage: ICharacterPage }>());
-
-export const searchCharactersName = createAction('[Character Component] Search Characters Name', props<{ name: string, status: string, location: string, gender: string }>());
+export type CharacterActions =
+    CharacterRequested | CharacterLoad | CharacterIsLoading | CharacterRequested | CharacterSetState | CharacterLoaded | CharacterSearch;

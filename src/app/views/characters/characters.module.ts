@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { StoreModule } from '@ngrx/store';
+import { characterReducer } from 'src/app/store/characters/characters.reducer';
 @NgModule({
   declarations: [
     CharactersComponent,
@@ -32,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forFeature('characters', characterReducer),
     MatSelectModule
   ]
 })

@@ -1,19 +1,24 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { ICharacterPage } from "./characterPage.interface"
+import * as fromCharacters from './characters.reducer';
 
-export const selectInitialCharacterPage = createFeatureSelector<ICharacterPage>('charactersPage');
+export const selectCharactersState = createFeatureSelector<fromCharacters.CharacterState>("characters");
 
-export const selectCharactersPage = createSelector(
-    selectInitialCharacterPage,
-    (characterPage) => characterPage
+export const selectAllCharacters = createSelector(
+    selectCharactersState,
+    fromCharacters.selectAll
 )
 
-export const selectCharacters = createSelector(
-    selectCharactersPage,
-    (characterPage) => characterPage.results
+export const selectCharacterState = createSelector(
+    selectCharactersState,
+    (charactersState) => charactersState
 )
 
-export const selectCharactersLoading = createSelector(
-    selectCharactersPage,
-    (characterPage) => characterPage.isLoading
+export const selectCharacterInfoState = createSelector(
+    selectCharacterState,
+    (charactersState) => charactersState.info
+)
+
+export const selectCharacterLoadingState = createSelector(
+    selectCharacterState,
+    (charactersState) => charactersState.isLoading
 )

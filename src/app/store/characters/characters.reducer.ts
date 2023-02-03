@@ -1,39 +1,37 @@
-import { createReducer, on } from "@ngrx/store";
 import { IInfo } from "src/app/models/info.interface";
-import { ICharacterPage } from "./characterPage.interface";
-import { addCharacters, setStateCharacters, setStateCharactersLoading } from "./characters.action";
+import { CharacterActions, CharactersActionTypes } from "./characters.action";
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { ICharacter } from "src/app/models/character.interface";
 
-export const initialCharacter: ICharacterPage = {
-    info: {} as IInfo,
-    results: [],
-    isLoading: false
-};
+export interface CharacterState extends EntityState<ICharacter>{ 
+    info: IInfo;
+    isLoading: boolean;
+}
 
-export const reducerCharacter = createReducer(
-    initialCharacter,
-    on(setStateCharacters, (state, { charactersPage }) => {
-        state = {
-            ...state,
-            ...charactersPage
+export const adapter: EntityAdapter<ICharacter> = createEntityAdapter<ICharacter>();
+
+export const initialCharacterState: CharacterState = adapter.getInitialState({
+    info: {count: 0, next: '', pages: 0, prev: ''},
+    isLoading: true,
+});
+
+export function characterReducer(state: CharacterState = initialCharacterState, action: CharacterActions): CharacterState{
+    switch(action.type){
+        case CharactersActionTypes.CharacterLoad: 
+            return adapter.addMany(action.payload.characterPage.results, {...state, info: action.payload.characterPage.info});
+        case CharactersActionTypes.CharacterIsLoading:
+            return {...state, isLoading: action.payload.isLoading}
+        case CharactersActionTypes.CharacterSetState:
+            return adapter.addMany(action.payload.characterPage.results, {ids: [], entities: {}, isLoading: false, info: action.payload.characterPage.info})
+        default: {
+            return state;
         }
+    }
+}
 
-        return state;
-    }),
-    on(addCharacters, (state, { charactersPage }) => {
-        state = {
-            ...state,
-            info: charactersPage.info,
-            results: state.results.concat(charactersPage.results)
-        }
-
-        return state;
-    }),
-    on(setStateCharactersLoading, (state, { isLoading }) => {
-        state = {
-            ...state,
-            isLoading: isLoading
-        }
-
-        return state;
-    }),
-)
+export const {
+    selectAll,
+    selectEntities,
+    selectIds,
+    selectTotal
+  } = adapter.getSelectors();

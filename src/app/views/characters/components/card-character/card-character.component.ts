@@ -9,7 +9,7 @@ import { ICharacter } from 'src/app/models/character.interface';
 })
 export class CardCharacterComponent {
 
-  @Input() public Character: ICharacter = {} as ICharacter;
+  @Input() public Character: ICharacter | undefined = {} as ICharacter;
   @Input() public isLoading: boolean = false;
   
   randomBetween(min: number = 25, max: number = 75, round: boolean = false): number | null{

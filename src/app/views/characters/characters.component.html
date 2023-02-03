@@ -5,17 +5,17 @@
         <app-filter-characters></app-filter-characters>
 
         <div class="c-container__cards">
-            <app-card-character *ngFor="let character of (Characters$ | async)?.results" [Character]="character"></app-card-character>
-            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
-            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
-            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
-            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
-            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
-            <app-card-character *ngIf="(Characters$ | async)?.isLoading" [isLoading]="true"></app-card-character>
+            <app-card-character *ngFor="let character of (charactersState$ | async)" [Character]="character"></app-card-character>
+            <app-card-character *ngIf="(charactersLoading$ | async)" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(charactersLoading$ | async)" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(charactersLoading$ | async)" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(charactersLoading$ | async)" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(charactersLoading$ | async)" [isLoading]="true"></app-card-character>
+            <app-card-character *ngIf="(charactersLoading$ | async)" [isLoading]="true"></app-card-character>
         </div>
         
         <div class="c-container__button-container">
-            <app-custom-button *ngIf="(Characters$ | async)?.info?.next" (click)="onLoadMore()" theme="contrast">Load more</app-custom-button>
+            <app-custom-button *ngIf="(charactersInfo$ | async)?.next" (click)="onLoadMore()" theme="contrast">Load more</app-custom-button>
         </div>
     </div>
 </div>

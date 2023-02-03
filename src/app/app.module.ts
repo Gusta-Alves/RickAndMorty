@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { reducerCharacter } from './store/characters/characters.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
@@ -26,7 +25,7 @@ import { episodeReducer } from './store/episodes/episodes.reducer';
     CoreModule,
     SharedModule,
     MatSnackBarModule,
-    StoreModule.forRoot({ charactersPage: reducerCharacter, episodesPage: episodeReducer }),
+    StoreModule.forRoot({ episodesPage: episodeReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([CharacterEffects]),
   ],
