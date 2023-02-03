@@ -13,7 +13,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { CharacterEffects } from './store/characters/character.effects';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CharacterService } from './views/characters/services/character.service';
-import { episodeReducer } from './store/episodes/episodes.reducer';
+import { characterReducer } from './store/characters/characters.reducer';
+import { reducers } from './store';
 @NgModule({
   declarations: [
     AppComponent
@@ -25,7 +26,7 @@ import { episodeReducer } from './store/episodes/episodes.reducer';
     CoreModule,
     SharedModule,
     MatSnackBarModule,
-    StoreModule.forRoot({ episodesPage: episodeReducer }),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([CharacterEffects]),
   ],

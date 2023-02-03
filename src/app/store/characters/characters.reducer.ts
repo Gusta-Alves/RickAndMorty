@@ -22,7 +22,7 @@ export function characterReducer(state: CharacterState = initialCharacterState, 
         case CharactersActionTypes.CharacterIsLoading:
             return {...state, isLoading: action.payload.isLoading}
         case CharactersActionTypes.CharacterSetState:
-            return adapter.addMany(action.payload.characterPage.results, {ids: [], entities: {}, isLoading: false, info: action.payload.characterPage.info})
+            return adapter.setAll(action.payload.characterPage.results, {...state, info: action.payload.characterPage.info})
         default: {
             return state;
         }

@@ -1,22 +1,25 @@
-import { createReducer, on } from "@ngrx/store";
+import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
+import { IEpisode } from "src/app/models/episode.interface";
 import { IInfo } from "src/app/models/info.interface";
-import { IEpisodePage } from "./episodePage.interface";
-import { setStateEpisodes } from "./episodes.action";
+import { EpisodeActions, EpisodesActionTypes } from "./episodes.action";
 
-export const initialEpisode: IEpisodePage = {
-    info: {} as IInfo,
-    results: [],
-    isLoading: false
-};
+export interface EpisodeState extends EntityState<IEpisode>{ 
+    info: IInfo;
+    isLoading: boolean;
+}
 
-export const episodeReducer = createReducer(
-    initialEpisode,
-    on(setStateEpisodes, (state, { episodesPage }) => {
-        state = {
-            ...state,
-            ...episodesPage
-        }
+export const adapter: EntityAdapter<IEpisode> = createEntityAdapter<IEpisode>();
 
-        return state;
-    })
-)
+export const initialEpisodeState: EpisodeState = adapter.getInitialState({
+    info: {count: 0, next: '', pages: 0, prev: ''},
+    isLoading: true,
+});
+
+export function episodeReducer(state: EpisodeState = initialEpisodeState, action: EpisodeActions): EpisodeState {
+    switch(action.type) {
+        case EpisodesActionTypes.EpisodeLoad:
+            return adapter.addMany(action.payload.episodePage.results, {...state, info: action.payload.episodePage.info});    
+        default:
+            return state; 
+    }
+}

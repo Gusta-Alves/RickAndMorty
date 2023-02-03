@@ -5,6 +5,10 @@ import { EpisodesRoutingModule } from './episodes-routing.module';
 import { EpisodesComponent } from './episodes.component';
 import { CardEpisodeComponent } from './components/card-episode/card-episode.component';
 import { MatCardModule } from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
+import { episodeReducer } from 'src/app/store/episodes/episodes.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { EpisodeEffects } from 'src/app/store/episodes/episode.effects';
 
 
 @NgModule({
@@ -15,7 +19,9 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     EpisodesRoutingModule,
-    MatCardModule
+    MatCardModule,
+    StoreModule.forFeature('episodes', episodeReducer),
+    EffectsModule.forFeature([EpisodeEffects]),
   ]
 })
 export class EpisodesModule { }

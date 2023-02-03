@@ -1,10 +1,24 @@
-import { createAction, props } from "@ngrx/store";
+import { Action } from "@ngrx/store";
 import { IEpisodePage } from "./episodePage.interface";
 
-export const loadEpisodesPage = createAction('[Character Component] Load Episodes Page');
+export enum EpisodesActionTypes {
+    EpisodeRequested = '[Episode Component] Requested Episodes',
+    EpisodeLoad = '[Episode Component] Load Episodes',
+    EpisodeLoaded = '[Episode Component] Episodes Loaded'
+}
+export class EpisodeRequested implements Action {
+    readonly type = EpisodesActionTypes.EpisodeRequested;
+    constructor() { }
+}
+export class EpisodeLoad implements Action {
+    readonly type = EpisodesActionTypes.EpisodeLoad;
+    constructor(public payload: { episodePage: IEpisodePage }) { }
+}
 
-export const loadEpisodesNextPage = createAction('[Character Component] Load Next Page Episodes Page');
+export class EpisodeLoaded implements Action {
+    readonly type = EpisodesActionTypes.EpisodeLoaded;
+    constructor() { }
+}
 
-export const loadedEpisodes = createAction('[Character Component] Loaded Episodes');
-
-export const setStateEpisodes = createAction('[Character Component] Set Episodes Page', props<{ episodesPage: IEpisodePage }>());
+export type EpisodeActions = 
+    EpisodeRequested | EpisodeLoad | EpisodeLoaded

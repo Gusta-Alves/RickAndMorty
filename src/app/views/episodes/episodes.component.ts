@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { EpisodeRequested } from 'src/app/store/episodes/episodes.action';
+import { EpisodeState } from 'src/app/store/episodes/episodes.reducer';
 
 @Component({
   selector: 'app-episodes',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EpisodesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<{ episodes: EpisodeState }>) { }
 
   ngOnInit(): void {
+    this.store.dispatch(new EpisodeRequested())
   }
 
 }
