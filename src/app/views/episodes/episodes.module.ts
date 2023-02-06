@@ -13,6 +13,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatChipsModule } from '@angular/material/chips';
     PipesModule,
     MatButtonModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    SharedModule
   ]
 })
 export class EpisodesModule { }

@@ -12,3 +12,13 @@ export const selectAllEpisodes = createSelector(
     selectInitialEpisodePage,
     fromEpisodes.selectAll
 )
+
+export const selectEpisodeInfo = createSelector(
+    selectEpisodesPage,
+    (episode) => episode.info
+)
+
+export const selectEpisodeIsLoading = createSelector(
+    selectEpisodesPage,
+    (episode) => episode.isLoading
+)

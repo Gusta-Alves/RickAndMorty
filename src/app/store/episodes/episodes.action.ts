@@ -8,7 +8,7 @@ export enum EpisodesActionTypes {
 }
 export class EpisodeRequested implements Action {
     readonly type = EpisodesActionTypes.EpisodeRequested;
-    constructor() { }
+    constructor(public payload: { next: boolean }) { }
 }
 export class EpisodeLoad implements Action {
     readonly type = EpisodesActionTypes.EpisodeLoad;

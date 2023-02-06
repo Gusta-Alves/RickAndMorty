@@ -1,3 +1,4 @@
+import { HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
@@ -29,7 +30,8 @@ export class EpisodeEffects {
                     this.store.select(selectEpisodesPage)
                 ),
                 mergeMap(([action, episodes]) => {
-                    return this.episodesService.getEpisodes(`episode`)
+                    const { nextPage, name, episode } = this.getParamsUrl(action.payload.next ? episodes?.info?.next?.split('?')![1] : undefined)
+                    return this.episodesService.getEpisodes(`episode?page=${nextPage}&name=${name || ''}&episode=${episode || ''}`)
                         .pipe(
                             tap((data: IEpisodePage) => this.store.dispatch(new EpisodeLoad({ episodePage: data }))),
                             map(() => new EpisodeLoaded()),
@@ -41,6 +43,14 @@ export class EpisodeEffects {
                 })
                 )
             )
+
+            getParamsUrl(url: string | undefined) {
+                const httpParams = new HttpParams({ fromString: url });
+                const nextPage = httpParams.get('page');
+                const name = httpParams.get('name');
+                const episode = httpParams.get('episode');
+                return { nextPage, name, episode }
+            }
     
 
 }
