@@ -16,11 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { StoreModule } from '@ngrx/store';
 import { characterReducer } from 'src/app/store/characters/characters.reducer';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 @NgModule({
   declarations: [
     CharactersComponent,
     CardCharacterComponent,
-    EpisodeNumberPipe,
     FilterCharactersComponent,
   ],
   imports: [
@@ -35,7 +35,8 @@ import { characterReducer } from 'src/app/store/characters/characters.reducer';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature('characters', characterReducer),
-    MatSelectModule
+    MatSelectModule,
+    PipesModule
   ]
 })
 export class CharactersModule { }

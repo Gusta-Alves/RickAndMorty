@@ -1,5 +1,4 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { IEpisodePage } from "./episodePage.interface";
 import * as fromEpisodes from './episodes.reducer';
 
 export const selectInitialEpisodePage = createFeatureSelector<fromEpisodes.EpisodeState>('episodes');
@@ -7,4 +6,9 @@ export const selectInitialEpisodePage = createFeatureSelector<fromEpisodes.Episo
 export const selectEpisodesPage = createSelector(
     selectInitialEpisodePage,
     (episodePage) => episodePage
+)
+
+export const selectAllEpisodes = createSelector(
+    selectInitialEpisodePage,
+    fromEpisodes.selectAll
 )

@@ -1,12 +1,12 @@
 <section class="c-card-container">
     <mat-card class="c-card">
-        <!-- <div class="c-card__ball c-card__ball--big"></div> -->
-        <h1 class="c-card__text">teste</h1>
-        <h1 class="c-card__numb">10</h1>
-    </mat-card>
-    <br>
-    <mat-card class="c-card">
-        <h1 class="c-card__text">teste tetestame tes ttes dts testestset teste tetestame</h1>
-        <h1 class="c-card__numb">10</h1>
+        <div class="c-card__season-box">
+            <h1 class="c-card__season-text">Season: {{ episode.episode | season }}</h1>
+        </div>
+        <h1 class="c-card__text">{{ episode.name }}</h1>
+        <h1 class="c-card__numb">{{ episode.url | episodeNumber }}</h1>
+        <button class="c-card__button" mat-mini-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
     </mat-card>
 </section>

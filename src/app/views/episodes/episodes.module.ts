@@ -9,7 +9,10 @@ import { StoreModule } from '@ngrx/store';
 import { episodeReducer } from 'src/app/store/episodes/episodes.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { EpisodeEffects } from 'src/app/store/episodes/episode.effects';
-
+import { PipesModule } from 'src/app/pipes/pipes.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,10 @@ import { EpisodeEffects } from 'src/app/store/episodes/episode.effects';
     MatCardModule,
     StoreModule.forFeature('episodes', episodeReducer),
     EffectsModule.forFeature([EpisodeEffects]),
+    PipesModule,
+    MatButtonModule,
+    MatIconModule,
+    MatChipsModule
   ]
 })
 export class EpisodesModule { }
