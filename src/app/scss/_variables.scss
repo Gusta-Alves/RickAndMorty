@@ -49,14 +49,6 @@ $iphoneX: "(min-height: 800px)";
 ::-webkit-scrollbar-thumb {
     background-color: $primary-dark;
 }
-  
-body{
-    background: var(--primary-color);
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 
 .c-container{
     margin: 0 auto;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { debounceTime, tap } from 'rxjs/operators';
 import { CharacterSearch } from 'src/app/store/characters/characters.action';
@@ -11,10 +11,10 @@ import { CharacterSearch } from 'src/app/store/characters/characters.action';
 })
 export class FilterCharactersComponent implements OnInit {
 
-  public filterGroup: FormGroup = {} as FormGroup;
+  public filterGroup: UntypedFormGroup = {} as UntypedFormGroup;
 
   constructor(private store: Store,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.onBuildForm();
