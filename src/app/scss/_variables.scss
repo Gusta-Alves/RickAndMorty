@@ -51,7 +51,7 @@ $iphoneX: "(min-height: 800px)";
 }
   
 body{
-    background: $gradient-primary;
+    background: var(--primary-color);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
