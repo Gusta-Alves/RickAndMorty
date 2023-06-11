@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { CharactersRoutingModule } from './characters-routing.module';
 import { CharactersComponent } from './characters.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -25,6 +24,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
   ],
   imports: [
     CommonModule,
+    NgOptimizedImage,
     CharactersRoutingModule,
     SharedModule,
     MatCardModule,

@@ -2,7 +2,7 @@
     <div class="c-card-container__img-container">
         <div class="c-img-content">
             <div class="c-img-content__img" *ngIf="isLoading"></div>
-            <img class="c-img-content__img" [src]="Character?.image" *ngIf="!isLoading" onerror="this.style.display='none'">
+            <img class="c-img-content__img" ngSrc="{{Character?.image}}" width="150" height="150" *ngIf="!isLoading" onerror="this.style.display='none'">
         </div>
     </div>
     <mat-card class="c-card">
