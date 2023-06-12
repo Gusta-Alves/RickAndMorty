@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
+    NgOptimizedImage,
     CoreRoutingModule,
     MatToolbarModule,
     HttpClientModule,

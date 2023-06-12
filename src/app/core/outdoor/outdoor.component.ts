@@ -9,12 +9,12 @@ import { IPhrase } from './models/phrase.interface';
 })
 export class OutdoorComponent implements OnInit {
 
-  public phrase: IPhrase | undefined;
+  public phrase: string | undefined;
 
   constructor(private outdoorService: OutdoorService) { }
 
   ngOnInit(): void {
-    this.outdoorService.onGetPhrase().subscribe(phrase => this.phrase = phrase);
+    this.outdoorService.onGetPhrase().subscribe(phrase => this.phrase = phrase.data[0]);
   }
 
 }

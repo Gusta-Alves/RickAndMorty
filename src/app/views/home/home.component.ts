@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { onNavigateTo } from 'src/app/core/ts/utils';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
+  private _onNavigateTo = onNavigateTo()
 
-  ngOnInit(): void {
+  onNavigateTo(path: string){
+    this._onNavigateTo([path])
   }
 
 }
